@@ -17,34 +17,24 @@ class ViewController: UIViewController {
     var isBlueBombHidden: Bool = false
     var isRedBombHidden: Bool = false
     
-    func hideShowBomb(bomb: UIImageView, isHidden: Bool) {
+    func hideShowBomb(bomb: UIImageView, isHidden: Bool, hideButton: UIButton, color: String) {
         if isHidden {
             bomb.hidden = false
+            hideButton.setTitle("Hide \(color) Bomb", forState: .Normal)
         }
         else {
             bomb.hidden = true
+            hideButton.setTitle("Show \(color) Bomb", forState: .Normal)
         }
     }
 
     @IBAction func hideBlueBomb(sender: AnyObject) {
-        hideShowBomb(blueBomb, isHidden: isBlueBombHidden)
+        hideShowBomb(blueBomb, isHidden: isBlueBombHidden, hideButton: hideBlueButton, color: "Blue")
         isBlueBombHidden = !isBlueBombHidden
-        if isBlueBombHidden {
-            hideBlueButton.setTitle("Show Blue Bomb", forState: .Normal)
-        }
-        else {
-            hideBlueButton.setTitle("Hide Blue Bomb", forState: .Normal)
-        }
     }
     @IBAction func hideRedBomb(sender: AnyObject) {
-        hideShowBomb(redBomb, isHidden: isRedBombHidden)
+        hideShowBomb(redBomb, isHidden: isRedBombHidden, hideButton: hideRedButton, color: "Red")
         isRedBombHidden = !isRedBombHidden
-        if isRedBombHidden {
-            hideRedButton.setTitle("Show Red Bomb", forState: .Normal)
-        }
-        else {
-            hideRedButton.setTitle("Hide Red Bomb", forState: .Normal)
-        }
 
     }
     
